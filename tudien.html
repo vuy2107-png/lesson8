@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form onsubmit="searchWord(); return false;">
+    <label for="word">Nhập từ tiếng Anh</label>
+    <input type="text" id="word" placeholder="Ví dụ: hello">
+    <input type="submit" value="Tìm kiếm">
+</form>
+<p id="result"></p>
+<script>
+    let english = ["hello", "world", "computer", "book", "school"];
+    let vietnamese = ["xin chào", "thế giới", "máy tính", "quyển sách", "trường học"];
+
+    function searchWord() {
+        let input = document.getElementById("word").value.toLowerCase();
+        let result = "Không tìm thấy";
+        for (let i = 0; i < english.length; i++) {
+            if (english[i] === input) {
+                result = vietnamese[i];
+                break;
+            }
+        }
+        document.getElementById("result").innerText = result;
+    }
+</script>
+</body>
+</html>
