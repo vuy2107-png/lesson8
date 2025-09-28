@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fixed typing text with array</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        textarea {
+            display: block;
+            margin: 20px auto;
+            width: 400px;
+            height: 150px;
+            font-size: 18px;
+            padding: 8px;
+            resize: both;
+        }
+    </style>
+</head>
+<body>
+<h1>Type anything slowly</h1>
+<textarea id="box"></textarea>
+
+<script>
+    const fixedText = "Bản chất của con người";
+    const chars = fixedText.split(""); // chuyển thành mảng ký tự
+    let index = 0;
+
+    const box = document.getElementById("box");
+
+    box.addEventListener("keydown", function(e) {
+        e.preventDefault(); // chặn nhập ký tự thật
+        if (index < chars.length) {
+            box.value += chars[index]; // lấy ký tự trong mảng
+            index++;
+        }
+    });
+</script>
+</body>
+</html>
