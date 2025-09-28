@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Caro game simple</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            font-size: 20px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<h2>Caro game simple</h2>
+<div id="board"></div>
+<br>
+<button onclick="play()">Change</button>
+<button onclick="resetGame()">Reset</button>
+
+<script>
+    const SIZE = 5;
+    let board = [];
+    let currentPlayer = "X";
+
+    // khởi tạo mảng
+    function initBoard() {
+        board = [];
+        for (let i = 0; i < SIZE; i++) {
+            board[i] = [];
+            for (let j = 0; j < SIZE; j++) {
+                board[i][j] = ".";
+            }
+        }
+    }
+
+    // hiển thị mảng ra table
+    function drawBoard() {
+        let html = "<table>";
+        for (let i = 0; i < SIZE; i++) {
+            html += "<tr>";
+            for (let j = 0; j < SIZE; j++) {
+                html += `<td>${board[i][j]}</td>`;
+            }
+            html += "</tr>";
+        }
+        html += "</table>";
+        document.getElementById("board").innerHTML = html;
+    }
+
+    // người chơi nhập tọa độ
+    function play() {
+        let r = parseInt(prompt("Nhập hàng (0-" + (SIZE-1) + "):"));
+        let c = parseInt(prompt("Nhập cột (0-" + (SIZE-1) + "):"));
+        if (r >= 0 && r < SIZE && c >= 0 && c < SIZE && board[r][c] === ".") {
+            board[r][c] = currentPlayer;
+            currentPlayer = (currentPlayer === "X") ? "O" : "X";
+            drawBoard();
+        } else {
+            alert("Ô không hợp lệ, chọn ô khác!");
+        }
+    }
+
+    function resetGame() {
+        currentPlayer = "X";
+        initBoard();
+        drawBoard();
+    }
+
+    // chạy lần đầu
+    initBoard();
+    drawBoard();
+</script>
+</body>
+</html>
