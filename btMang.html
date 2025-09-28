@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // bài 1
+    let myColor = ["Red", "Green", "White", "Black"];
+    let result = "";
+    for (let i = 0; i < myColor.length; i++) {
+        result += myColor[i] + ",";
+    }
+    document.write(result);
+    // bài 2
+    let num = prompt("Enter number");
+    let numbers = [num[0]];
+    for (let i = 1; i < num.length; i++) {
+        if (num[i - 1] % 2 === 0 && num[i] % 2 === 0) {
+            numbers.push('-', num[i]);
+        } else {
+            numbers.push(num[i]);
+        }
+    }
+    alert(numbers.join(""));
+    // bài 3
+    let hoa = "The Quick Brown Fox";
+    let thuong = "";
+    for (let i = 0; i < hoa.length; i++) {
+        let char = hoa[i];
+        if (char === char.toUpperCase()) {
+            thuong += char.toLowerCase();
+        } else {
+            thuong += char.toUpperCase();
+        }
+    }
+    console.log(thuong);
+</script>
+</body>
+</html>
