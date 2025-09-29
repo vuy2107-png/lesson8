@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // bài 1
+    let numbers = [1, 2, 3, 9, 5, 10, 76, -98, 32, 34];
+    document.write("Mảng: " + numbers + "<br>");
+
+    let result = [];
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] >= 10) {
+            result.push(numbers[i]);
+        }
+    }
+    result.sort((a, b) => a - b);
+    document.write("Bài 1 <br>Các số lớn hơn bằng 10 là: " + result.join(", ") + "<br>");
+
+    // bài 2
+    let max = numbers[0];
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] > max) {
+            max = numbers[i];
+        }
+    }
+    document.write("Bài 2 <br>Số lớn nhất là: " + max + "<br>");
+
+    // bài 3
+    let sum = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
+    }
+    let average = sum / numbers.length;
+    document.write("Bài 3 <br>Trung bình giá trị của các phần tử là: " + average + "<br>");
+
+    // bài 4
+    let input = prompt("Nhập các số nguyên, cách nhau bởi dấu phẩy (,):");
+    let nums = input.split(",").map(Number);
+    let reversed = nums.slice().reverse();
+    document.write("Bài 4 <br>Mảng ban đầu: " + nums.join(", ") + "<br>");
+    document.write("Mảng sau khi đảo ngược: " + reversed.join(", ") + "<br>");
+
+    // bài 5
+    let count = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] < 0) {
+            count++;
+        }
+    }
+    document.write("Bài 5 <br>Số lượng số nguyên âm trong mảng là: " + count + "<br>");
+
+    // bài 6
+    let unpit = prompt("Nhập và kiểm tra xem có trong mảng không:");
+    let found = false;
+    for (let i = 0; i < numbers.length; i++) {
+        if (unpit == numbers[i]) {
+            found = true;
+            break;
+        }
+    }
+    if (found) {
+        document.write("Bài 6 <br>" + unpit + " is in the array<br>");
+    } else {
+        document.write("Bài 6 <br>" + unpit + " is not in the array<br>");
+    }
+
+    // bài 7
+    let array7 = numbers.slice(0, 10); // lấy 10 phần tử đầu
+    document.write("Bài 7 <br>Mảng ban đầu: " + array7.join(", ") + "<br>");
+
+    let V = parseInt(prompt("Nhập số nguyên V:"));
+    let index = array7.indexOf(V);
+
+    if (index !== -1) {
+        // dịch các phần tử bên phải sang trái
+        for (let i = index; i < array7.length - 1; i++) {
+            array7[i] = array7[i + 1];
+        }
+        array7[array7.length - 1] = 0; // gán 0 cho phần tử cuối cùng
+        document.write(V + " có trong mảng, xóa và cập nhật mảng: " + array7.join(", ") + "<br>");
+    } else {
+        document.write(V + " không có trong mảng.<br>");
+    }
+    // bài 8
+    let sortedDesc = numbers.slice().sort((a, b) => b - a);
+    document.write("Bài 8 <br>Sắp xếp theo thứ tự giảm dần: " + sortedDesc.join(", ") + "<br>");
+    // bài 9
+    let nemburs = [54, 66, -32, -88, -78, 21, 12, 33, 0, 28]
+    let arrays = numbers.concat(nemburs);
+    document.write("Bài 9 <br> Mảng 1: " + numbers.join(", ") + "<br>");
+    document.write("Mảng 2: " + nemburs.join(", ") + "<br>");
+    document.write("Mảng 3: " + arrays.join(", "));
+</script>
+</body>
+</html>
