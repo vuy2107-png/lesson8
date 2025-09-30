@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Print 2D Array</title>
+</head>
+<body>
+<script>
+    // bài 1
+    let a = [
+        [1, 2, 1, 24],
+        [8, 11, 9, 4],
+        [7, 0, 7, 27],
+        [7, 4, 28, 14],
+        [3, 10, 26, 7]
+    ];
+
+    for (let i = 0; i < a.length; i++) {
+        document.write("row " + i + "<br>");
+        for (let j = 0; j < a[i].length; j++) {
+            document.write("&nbsp;&nbsp;" + a[i][j] + "<br>");
+        }
+    }
+    // bài 2
+    let arr = ['c', 's', 'c', '2', '6', '1'];
+    let result = arr.reverse().join("");
+    document.write(result + "<br>");
+    // bài 3
+    let arr3 = ['c', 's', 'c', '2', '6', '1', 'a', '9', 'b', '5'];
+    let count = 0;
+
+    for (let i = 0; i < arr3.length; i++) {
+        // Nếu arr3[i] là số (ký tự 0-9)
+        if (!isNaN(arr3[i]) && arr3[i] >= '0' && arr3[i] <= '9') {
+            count++;
+        }
+    }
+
+    document.write("Mảng: " + arr3.join(", ") + "<br>");
+    document.write("Số lượng ký tự số (0-9) trong mảng là: " + count + "<br>");
+    // bài 4
+    let str = prompt("Nhập vào một chuỗi");
+    let words = str.trim().split(/\s+/);
+    let counts = words.length;
+    document.write("Chuỗi: " + str + "<br>");
+    document.write("Số lượng từ trong chuỗi là: " + counts + "<br>");
+    // bài 5
+    let string1 = prompt("Nhập chuỗi 1");
+    let string2 = prompt("Nhập chuỗi 2");
+    if (string1 == string2) {
+        document.write("Hai chuỗi giống nhau" + "<br>");
+    } else {
+        document.write("Hai chuỗi khác nhau" + "<br>")
+    }
+    // bài 6
+    let input = prompt("Nhập vào một chuỗi ký tự (ví dụ: a-b-c-d):");
+    let arr6 = input.split("");
+    for (let i = 0; i < arr6.length; i++) {
+        if (arr6[i] === '-') {
+            arr6[i] = '_';
+        }
+    }
+    document.write("Mảng sau khi thay thế: " + arr6.join("") + "<br>");
+</script>
+</body>
+</html>
