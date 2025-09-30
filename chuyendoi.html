@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feet - Meter Conversion</title>
+</head>
+<body>
+<script>
+    function footToMeter(foot) {
+        return foot * 0.305;
+    }
+    function meterToFoot(meter) {
+        return meter * 3.279;
+    }
+
+    let feet = parseFloat(prompt("Nhập giá trị (foot):"));
+    let meters =parseFloat(prompt("Nhập giá trị (meter):"));
+
+    document.write(feet + " foot = " + footToMeter(feet).toFixed(3) + " meter <br>");
+    document.write(meters + " meter = " + meterToFoot(meters).toFixed(3) + " foot");
+</script>
+</body>
+</html>
